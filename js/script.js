@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function handleMouseDown() {
+    console.log('mousedown');
     this.classList.add('pressed');
     playNote.call(this);
   }
