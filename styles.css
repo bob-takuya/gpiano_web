@@ -37,6 +37,22 @@
     z-index: 1;
     top: 50%; /*下寄せの指定*/
   }
+
+  
+  @media (max-width: 425px) { 
+    .key{
+      width:11%;
+      font-size:12px;
+    }
+    .key p{
+      top:80%;
+    }
+    .black-key{
+      width:9%;
+      margin-left: -4%;
+      margin-right: -6%;
+    }
+  }
   
   .kb-name{
     background-color: gray;
