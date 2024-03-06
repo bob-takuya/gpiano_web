@@ -8,6 +8,7 @@
   justify-content: center;
   margin:auto;
   margin-top:50px;
+  width:50%;
 }
   .key {
     width: 50px;
@@ -56,6 +57,9 @@
       width:9%;
       margin-left: -4%;
       margin-right: -6%;
+    }
+    .chordtable{
+      width:300px
     }
   }
   
