@@ -1,8 +1,7 @@
-//document.addEventListener('DOMContentLoaded', function() {
 window.onload = function() {
-  const synth = new Tone.PolySynth().toDestination();
   const keys = document.querySelectorAll('.key');
-  let isKeyPressed = false; // Flag to track if a key is pressed
+  const synth = new Tone.PolySynth().toDestination();
+  const pressedKeys = new Set(); // Set to track pressed keys
 
   keys.forEach(key => {
     key.addEventListener('mousedown', handleMouseDown);
@@ -12,22 +11,20 @@ window.onload = function() {
   });
 
   document.addEventListener('keydown', function(event) {
-    if (!isKeyPressed) {
-      isKeyPressed = true; // Set flag to true if a key is pressed
-      const keyCode = event.keyCode || event.which;
-      const keyElement = document.querySelector(`.key[data-key="${keyCode}"]`);
-      if (keyElement) {
-        keyElement.classList.add('pressed');
-        playNote.call(keyElement);
-      }
+    const keyCode = event.keyCode || event.which;
+    const keyElement = document.querySelector(`.key[data-key="${keyCode}"]`);
+    if (keyElement && !pressedKeys.has(keyCode)) {
+      pressedKeys.add(keyCode); // Add pressed key to the set
+      keyElement.classList.add('pressed');
+      playNote.call(keyElement);
     }
   });
 
   document.addEventListener('keyup', function(event) {
-    isKeyPressed = false; // Reset flag when no key is pressed
     const keyCode = event.keyCode || event.which;
     const keyElement = document.querySelector(`.key[data-key="${keyCode}"]`);
     if (keyElement) {
+      pressedKeys.delete(keyCode); // Remove released key from the set
       keyElement.classList.remove('pressed');
       stopNote.call(keyElement);
     }
