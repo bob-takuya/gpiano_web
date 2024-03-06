@@ -8,43 +8,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.37/Tone.js"></script>
 </head>
 <body>
+　  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const pianoContainer = document.querySelector('.piano-container');
 
-    /* PC表示時 */
-    <div class="piano">
-        <div class="key" id="key01" data-frequency="261.6" data-key="87"><p>Do</p><p class="kb-name">w</p></div>
-        <div class="key black-key" id="key02" data-frequency="278.5" data-key="51"><p class="kb-name">3</p></div>
-        <div class="key" id="key03" data-frequency="289.5" data-key="69"><p>Re</p><p class="kb-name">e</p></div>
-        <div class="key" id="key04" data-frequency="308.1" data-key="82"><p>Mi</p><p class="kb-name">r</p></div>
-        <div class="key black-key" id="key05" data-frequency="328" data-key="53"><p class="kb-name">5</p></div>
-        <div class="key" id="key06" data-frequency="340.9" data-key="84"><p>Fa</p><p class="kb-name">t</p></div>
-        <div class="key black-key" id="key07" data-frequency="362.9" data-key="54"><p class="kb-name">6</p></div>
-        <div class="key" id="key08" data-frequency="377.2" data-key="89"><p>So</p><p class="kb-name">y</p></div>
-        <div class="key" id="key09" data-frequency="401.5" data-key="85"><p>La</p><p class="kb-name">u</p></div>
-        <div class="key black-key" id="key10" data-frequency="427.4" data-key="56"><p class="kb-name">8</p></div>
-        <div class="key" id="key11" data-frequency="444.2" data-key="73"><p>Sa</p><p class="kb-name">i</p></div>
-        <div class="key" id="key12" data-frequency="472.9" data-key="79"><p>Ti</p><p class="kb-name">o</p></div>
-        <div class="key black-key" id="key13" data-frequency="503.4" data-key="48"><p class="kb-name">0</p></div>
-        <div class="key" id="key14" data-frequency="523.3" data-key="90"><p>Do</p><p class="kb-name">z</p></div>
-        <div class="key black-key" id="key15" data-frequency="557" data-key="83"><p class="kb-name">s</p></div>
-        <div class="key" id="key16" data-frequency="579" data-key="88"><p>Re</p><p class="kb-name">x</p></div>
-        <div class="key" id="key17"data-frequency="612.2" data-key="67"><p>Mi</p><p class="kb-name">c</p></div>
-        <div class="key black-key" id="key18" data-frequency="656" data-key="70"><p class="kb-name">f</p></div>
-        <div class="key" id="key19" data-frequency="681.8" data-key="86"><p>Fa</p><p class="kb-name">v</p></div>
-        <div class="key black-key" id="key20" data-frequency="725.8" data-key="71"><p class="kb-name">g</p></div>
-        <div class="key" id="key21" data-frequency="754.4" data-key="66"><p>So</p><p class="kb-name">b</p></div>
-        <div class="key" id="key22" data-frequency="803" data-key="78"><p>La</p><p class="kb-name">n</p></div>
-        <div class="key black-key" id="key23" data-frequency="854.8" data-key="74"><p class="kb-name">j</p></div>
-        <div class="key" id="key24" data-frequency="888.4" data-key="77"><p>Sa</p><p class="kb-name">m</p></div>
-        <div class="key" id="key25" data-frequency="945.8" data-key="188"><p>Ti</p><p class="kb-name">,</p></div>
-        <div class="key black-key" id="key26" data-frequency="1006.8" data-key="76"><p class="kb-name">l</p></div>
-        <div class="key" id="key27" data-frequency="1046.6" data-key="190"><p>Do</p><p class="kb-name">.</p></div>
-        <!-- Add more keys for the octave -->
-        <!-- Example: <div class="key" id="key02"></div> -->
-        <!-- Add keys for the entire octave -->
-      </div>
-    
-    /* タブレット表示時 */
-    @media (max-width: 960px) {
+      // Function to generate piano HTML for narrow screens
+      function generateNarrowPiano() {
+        pianoContainer.innerHTML = `
   <div class="piano">
     <div class="key" id="key01" data-frequency="261.6" data-key="87"><p>Do</p><p class="kb-name">w</p></div>
     <div class="key black-key" id="key02" data-frequency="278.5" data-key="51"><p class="kb-name">3</p></div>
@@ -76,12 +46,62 @@
     <div class="key" id="key25" data-frequency="945.8" data-key="188"><p>Ti</p><p class="kb-name">,</p></div>
     <div class="key black-key" id="key26" data-frequency="1006.8" data-key="76"><p class="kb-name">l</p></div>
     <div class="key" id="key27" data-frequency="1046.6" data-key="190"><p>Do</p><p class="kb-name">.</p></div>
-    <!-- Add more keys for the octave -->
-    <!-- Example: <div class="key" id="key02"></div> -->
-    <!-- Add keys for the entire octave -->
   </div>
-}
+        `;
+      }
 
+      // Function to generate piano HTML for wide screens
+      function generateWidePiano() {
+        pianoContainer.innerHTML = `
+      <div class="piano">
+        <div class="key" id="key01" data-frequency="261.6" data-key="87"><p>Do</p><p class="kb-name">w</p></div>
+        <div class="key black-key" id="key02" data-frequency="278.5" data-key="51"><p class="kb-name">3</p></div>
+        <div class="key" id="key03" data-frequency="289.5" data-key="69"><p>Re</p><p class="kb-name">e</p></div>
+        <div class="key" id="key04" data-frequency="308.1" data-key="82"><p>Mi</p><p class="kb-name">r</p></div>
+        <div class="key black-key" id="key05" data-frequency="328" data-key="53"><p class="kb-name">5</p></div>
+        <div class="key" id="key06" data-frequency="340.9" data-key="84"><p>Fa</p><p class="kb-name">t</p></div>
+        <div class="key black-key" id="key07" data-frequency="362.9" data-key="54"><p class="kb-name">6</p></div>
+        <div class="key" id="key08" data-frequency="377.2" data-key="89"><p>So</p><p class="kb-name">y</p></div>
+        <div class="key" id="key09" data-frequency="401.5" data-key="85"><p>La</p><p class="kb-name">u</p></div>
+        <div class="key black-key" id="key10" data-frequency="427.4" data-key="56"><p class="kb-name">8</p></div>
+        <div class="key" id="key11" data-frequency="444.2" data-key="73"><p>Sa</p><p class="kb-name">i</p></div>
+        <div class="key" id="key12" data-frequency="472.9" data-key="79"><p>Ti</p><p class="kb-name">o</p></div>
+        <div class="key black-key" id="key13" data-frequency="503.4" data-key="48"><p class="kb-name">0</p></div>
+        <div class="key" id="key14" data-frequency="523.3" data-key="90"><p>Do</p><p class="kb-name">z</p></div>
+        <div class="key black-key" id="key15" data-frequency="557" data-key="83"><p class="kb-name">s</p></div>
+        <div class="key" id="key16" data-frequency="579" data-key="88"><p>Re</p><p class="kb-name">x</p></div>
+        <div class="key" id="key17"data-frequency="612.2" data-key="67"><p>Mi</p><p class="kb-name">c</p></div>
+        <div class="key black-key" id="key18" data-frequency="656" data-key="70"><p class="kb-name">f</p></div>
+        <div class="key" id="key19" data-frequency="681.8" data-key="86"><p>Fa</p><p class="kb-name">v</p></div>
+        <div class="key black-key" id="key20" data-frequency="725.8" data-key="71"><p class="kb-name">g</p></div>
+        <div class="key" id="key21" data-frequency="754.4" data-key="66"><p>So</p><p class="kb-name">b</p></div>
+        <div class="key" id="key22" data-frequency="803" data-key="78"><p>La</p><p class="kb-name">n</p></div>
+        <div class="key black-key" id="key23" data-frequency="854.8" data-key="74"><p class="kb-name">j</p></div>
+        <div class="key" id="key24" data-frequency="888.4" data-key="77"><p>Sa</p><p class="kb-name">m</p></div>
+        <div class="key" id="key25" data-frequency="945.8" data-key="188"><p>Ti</p><p class="kb-name">,</p></div>
+        <div class="key black-key" id="key26" data-frequency="1006.8" data-key="76"><p class="kb-name">l</p></div>
+        <div class="key" id="key27" data-frequency="1046.6" data-key="190"><p>Do</p><p class="kb-name">.</p></div>
+      </div>
+        `;
+      }
+
+      // Initial check for screen width and generate appropriate piano HTML
+      if (window.innerWidth <= 600) {
+        generateNarrowPiano();
+      } else {
+        generateWidePiano();
+      }
+
+      // Event listener for window resize to update piano HTML based on screen width
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 600) {
+          generateNarrowPiano();
+        } else {
+          generateWidePiano();
+        }
+      });
+    });
+  </script>
   <script src="js/script.js"></script>
 </body>
 </html>
