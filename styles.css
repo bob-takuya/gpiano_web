@@ -17,7 +17,7 @@
     margin-right: -1px;
     background-color: white;
     position: relative;
-    text-align:center
+    text-align:center;
   }
 
   .key p{
@@ -59,7 +59,7 @@
       margin-right: -6%;
     }
     .chordtable{
-      width:300px
+      width:300px;
     }
   }
   
