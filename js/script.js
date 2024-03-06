@@ -1,11 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
+//document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
   const synth = new Tone.PolySynth().toDestination();
   const keys = document.querySelectorAll('.key');
   let isKeyPressed = false; // Flag to track if a key is pressed
 
   keys.forEach(key => {
-    key.addEventListener('mousedown', handleMouseDown);
-    key.addEventListener('mouseup', handleMouseUp);
+    //key.addEventListener('mousedown', handleMouseDown);
+    //key.addEventListener('mouseup', handleMouseUp);
     key.addEventListener('touchstart', handleTouchStart);
     key.addEventListener('touchend', handleTouchEnd);
   });
@@ -44,12 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function handleTouchStart(event) {
+    console.log('touch');
     event.preventDefault(); // Prevent scrolling when touching the piano keys
     this.classList.add('pressed');
     playNote.call(this);
   }
 
   function handleTouchEnd(event) {
+    console.log('release');
     event.preventDefault(); // Prevent scrolling when touching the piano keys
     this.classList.remove('pressed');
     stopNote.call(this);
@@ -64,4 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
     const frequency = parseFloat(this.dataset.frequency);
     synth.triggerRelease(frequency);
   }
-});
+};
