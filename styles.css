@@ -3,7 +3,12 @@
     margin-bottom:20px;
     justify-content: center;
   }
-  
+.chordtable{
+  display: flex;;
+  justify-content: center;
+  margin:auto;
+  margin-top:50px;
+}
   .key {
     width: 50px;
     height: 200px;
