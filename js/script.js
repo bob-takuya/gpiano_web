@@ -5,8 +5,8 @@ window.onload = function() {
   let isKeyPressed = false; // Flag to track if a key is pressed
 
   keys.forEach(key => {
-    //key.addEventListener('mousedown', handleMouseDown);
-    //key.addEventListener('mouseup', handleMouseUp);
+    key.addEventListener('mousedown', handleMouseDown);
+    key.addEventListener('mouseup', handleMouseUp);
     key.addEventListener('touchstart', handleTouchStart);
     key.addEventListener('touchend', handleTouchEnd);
   });
