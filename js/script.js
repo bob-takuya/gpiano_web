@@ -34,7 +34,6 @@ window.onload = function() {
   });
 
   function handleMouseDown() {
-    console.log('mousedown');
     this.classList.add('pressed');
     playNote.call(this);
   }
@@ -45,14 +44,12 @@ window.onload = function() {
   }
 
   function handleTouchStart(event) {
-    console.log('touch');
     event.preventDefault(); // Prevent scrolling when touching the piano keys
     this.classList.add('pressed');
     playNote.call(this);
   }
 
   function handleTouchEnd(event) {
-    console.log('release');
     event.preventDefault(); // Prevent scrolling when touching the piano keys
     this.classList.remove('pressed');
     stopNote.call(this);
