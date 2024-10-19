@@ -3,6 +3,13 @@ window.onload = function() {
   const synth = new Tone.PolySynth().toDestination();
   const pressedKeys = new Set(); // Set to track pressed keys
 
+  // 音声コンテキストの初期化
+  document.addEventListener('touchstart', () => {
+    if (Tone.context.state !== 'running') {
+      Tone.context.resume();
+    }
+  });
+
   keys.forEach(key => {
     key.addEventListener('mousedown', handleMouseDown);
     key.addEventListener('mouseup', handleMouseUp);
